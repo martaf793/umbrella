@@ -18,8 +18,8 @@ first_result = results.at(0)
 #pp first_result.keys
 geo =first_result.fetch("geometry")
 location= geo.fetch("location")
-#pp lat=location.fetch("lat")
-#pp lng=location.fetch("lng")
+lat=location.fetch("lat")
+lng=location.fetch("lng")
 pw_key = ENV.fetch("PIRATE_WEATHER_KEY") 
 pw_api_url="https://api.pirateweather.net/forecast/"+pw_key+"/"+lat.to_s+","+lng.to_s
 raw_pw_body= HTTP.get(pw_api_url).to_s
