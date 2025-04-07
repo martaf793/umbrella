@@ -2,8 +2,8 @@ require "dotenv/load"
 require "http"
 require "json"
 pp "Where are you location?"
-user_location = gets.chomp
-#user_location = "Tenerife"
+#user_location = gets.chomp
+user_location = "Tenerife"
 gm_api_url="https://maps.googleapis.com/maps/api/geocode/json?address=" + user_location+ "&key=" +ENV.fetch("GMAPS_KEY")
 pp gm_api_url
 raw_gm_api=HTTP.get(gm_api_url).to_s
@@ -25,6 +25,8 @@ pw_api_url="https://api.pirateweather.net/forecast/"+pw_key+"/"+lat.to_s+","+lng
 raw_pw_body= HTTP.get(pw_api_url).to_s
 parse_pw_body = JSON.parse(raw_pw_body)
 #pp parse_pw_body.class
-#pp parse_pw_body.keys
+parse_pw_body.keys
 currently= parse_pw_body.fetch("currently")
 pp currently.fetch("temperature")
+hourly=parse_pw_body.fetch("hourly")
+pp summary= hourly.fetch("summary")
