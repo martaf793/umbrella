@@ -29,4 +29,4 @@ parse_pw_body.keys
 currently= parse_pw_body.fetch("currently")
 hourly=parse_pw_body.fetch("hourly")
 summary= hourly.fetch("summary")
-pp "The current temperature is #{currently.fetch("temperature")} and the weather for the next hour will be #{summary.downcase}"
+pp "The current temperature is #{currently.fetch("temperature")}°F and the weather for the next hour will be #{summary.downcase}"
